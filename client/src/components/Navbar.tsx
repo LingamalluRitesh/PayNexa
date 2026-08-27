@@ -18,6 +18,9 @@ export const Navbar: React.FC = () => {
   const portals: Array<{ id: PortalType; label: string; icon: React.FC<{ className?: string }> }> = [
     { id: 'merchant', label: 'Merchant Hub', icon: LayoutDashboard },
     { id: 'consumer', label: 'Consumer Wallet', icon: Wallet },
+    { id: 'treasury', label: 'Treasury & GL', icon: CreditCard },
+    { id: 'iso', label: 'ISO Messages', icon: Code2 },
+    { id: 'rails', label: 'Payment Rails', icon: Zap },
     { id: 'admin', label: 'Compliance & Risk', icon: ShieldAlert },
     { id: 'checkout', label: 'Hosted Checkout', icon: CreditCard },
     { id: 'docs', label: 'API & Sandbox', icon: Code2 },

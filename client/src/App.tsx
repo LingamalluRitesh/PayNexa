@@ -7,6 +7,9 @@ import { ConsumerPortal } from './views/ConsumerPortal/ConsumerPortal';
 import { AdminConsole } from './views/AdminConsole/AdminConsole';
 import { CheckoutDemo } from './views/CheckoutDemo/CheckoutDemo';
 import { DeveloperDocs } from './views/DeveloperDocs/DeveloperDocs';
+import { TreasuryConsole } from './views/TreasuryConsole/TreasuryConsole';
+import { IsoMessageHub } from './views/IsoMessageHub/IsoMessageHub';
+import { RailWorkbench } from './views/RailWorkbench/RailWorkbench';
 
 export const AppContent: React.FC = () => {
   const { activePortal } = useApp();
@@ -15,9 +18,12 @@ export const AppContent: React.FC = () => {
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-blue-600 selection:text-white">
       <Navbar />
 
-      <main className="flex-1 pb-16">
+      <main className="flex-1 pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 w-full">
         {activePortal === 'merchant' && <MerchantPortal />}
         {activePortal === 'consumer' && <ConsumerPortal />}
+        {activePortal === 'treasury' && <TreasuryConsole />}
+        {activePortal === 'iso' && <IsoMessageHub />}
+        {activePortal === 'rails' && <RailWorkbench />}
         {activePortal === 'admin' && <AdminConsole />}
         {activePortal === 'checkout' && <CheckoutDemo />}
         {activePortal === 'docs' && <DeveloperDocs />}
