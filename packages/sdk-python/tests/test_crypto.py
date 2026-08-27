@@ -1,6 +1,11 @@
 import unittest
 import json
 import time
+import sys
+import os
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from paynexa.crypto import generate_webhook_signature, verify_webhook_signature
 from paynexa.exceptions import SignatureVerificationError
 

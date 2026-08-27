@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { api } from '../services/api';
 
-export type PortalType = 'consumer' | 'merchant' | 'admin' | 'checkout' | 'docs';
+export type PortalType = 'consumer' | 'merchant' | 'admin' | 'treasury' | 'iso' | 'rails' | 'checkout' | 'docs';
 
 export interface NotificationItem {
   id: string;
