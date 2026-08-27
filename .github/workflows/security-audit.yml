@@ -1,0 +1,26 @@
+name: Security Audit & Secret Detection
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify No .env Files Committed
+        run: |
+          if [ -f .env ] || [ -f server/.env ] || [ -f client/.env ]; then
+            echo "❌ ERROR: .env file found in repository! .env files must never be committed."
+            exit 1
+          else
+            echo "✅ PASSED: No tracked .env files detected."
+          fi
+
+      - name: Run NPM Security Audit
+        run: npm audit --audit-level=high || true

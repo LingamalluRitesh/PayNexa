@@ -1,0 +1,33 @@
+{
+  "name": "@paynexa/sdk",
+  "version": "1.0.0",
+  "description": "Official TypeScript/JavaScript SDK for PayNexa Payment Platform",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@paynexa/core": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  },
+  "keywords": [
+    "paynexa",
+    "payments",
+    "sdk",
+    "checkout",
+    "fintech"
+  ],
+  "author": "Lingamallu Ritesh",
+  "license": "MIT"
+}

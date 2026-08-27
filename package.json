@@ -1,0 +1,37 @@
+{
+  "name": "paynexa-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PayNexa — Next-Generation Digital Payment Platform & Banking Core",
+  "workspaces": [
+    "packages/*",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"blue.bold,green.bold\" \"npm run dev --workspace=server\" \"npm run dev --workspace=client\"",
+    "dev:server": "npm run dev --workspace=server",
+    "dev:client": "npm run dev --workspace=client",
+    "build": "npm run build --workspace=@paynexa/core && npm run build --workspace=@paynexa/sdk-typescript && npm run build --workspace=server && npm run build --workspace=client",
+    "test": "npm run test --workspace=@paynexa/core && npm run test --workspace=server",
+    "seed": "npm run seed --workspace=server",
+    "benchmark": "npm run benchmark --workspace=server",
+    "lint": "npm run lint --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "typescript": "^5.7.3"
+  },
+  "keywords": [
+    "fintech",
+    "payments",
+    "double-entry-ledger",
+    "fraud-detection",
+    "payment-gateway",
+    "virtual-cards",
+    "3d-secure",
+    "webhooks"
+  ],
+  "author": "Lingamallu Ritesh & PayNexa Core Engineering Team",
+  "license": "MIT"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@paynexa/core",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Shared Domain Contracts, Types, and Cryptographic/Financial Invariants for PayNexa",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rimraf dist",
+    "test": "node --test --import=tsx tests/**/*.test.ts"
+  },
+  "keywords": [
+    "fintech",
+    "ledger",
+    "types",
+    "money",
+    "luhn"
+  ],
+  "author": "Lingamallu Ritesh",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}

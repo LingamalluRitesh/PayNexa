@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paynexa"
+version = "1.0.0"
+description = "Official Python SDK for PayNexa Next-Generation Payment Platform"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Lingamallu Ritesh", email = "dev@paynexa.io" }]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "requests>=2.28.0",
+]
