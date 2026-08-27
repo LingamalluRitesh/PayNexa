@@ -25,7 +25,7 @@
     "luhn"
   ],
   "author": "Lingamallu Ritesh",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "devDependencies": {
     "typescript": "^5.7.3"
   }
