@@ -7,8 +7,20 @@ class PayNexaError(Exception):
         self.code = code
         self.details = details or {}
 
+class PayNexaAPIError(PayNexaError):
+    """Raised on API errors returned by PayNexa."""
+    pass
+
 class AuthenticationError(PayNexaError):
     """Raised when API key is missing or invalid."""
+    pass
+
+class InvalidRequestError(PayNexaError):
+    """Raised when request payload is malformed or invalid."""
+    pass
+
+class SignatureVerificationError(PayNexaError):
+    """Raised when webhook signature verification fails."""
     pass
 
 class IdempotencyError(PayNexaError):

@@ -11,7 +11,14 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
     headers,
   });
 
-  const json = await response.json();
+  const text = await response.text();
+  let json: any;
+  try {
+    json = JSON.parse(text);
+  } catch {
+    throw new Error(`API returned non-JSON response (${response.status}): ${text.slice(0, 100)}`);
+  }
+
   if (!response.ok || !json.success) {
     throw new Error(json.error?.message || `HTTP ${response.status} Request failed`);
   }

@@ -19,6 +19,10 @@ import { disputeRouter } from './controllers/dispute.controller.js';
 import { analyticsRouter } from './controllers/analytics.controller.js';
 import { kycRouter } from './controllers/kyc.controller.js';
 import { authRouter } from './controllers/auth.controller.js';
+import { iso20022Router } from './controllers/iso20022.controller.js';
+import { reconciliationRouter } from './controllers/reconciliation.controller.js';
+import { amlRouter } from './controllers/aml.controller.js';
+import { vaultRouter } from './controllers/vault.controller.js';
 
 // Auto seed on boot
 seedDatabase();
@@ -61,8 +65,24 @@ api.use('/subscriptions', subscriptionRouter);
 api.use('/disputes', disputeRouter);
 api.use('/analytics', analyticsRouter);
 api.use('/kyc', kycRouter);
+api.use('/iso20022', iso20022Router);
+api.use('/reconciliation', reconciliationRouter);
+api.use('/aml', amlRouter);
+api.use('/vault', vaultRouter);
 
 app.use(config.API_PREFIX, api);
+
+// Catch-all API 404 Handler (Always returns JSON, never HTML)
+app.use((req, res) => {
+  res.status(404).json({
+    success: false,
+    error: {
+      code: 'resource_not_found',
+      message: `Route not found: ${req.method} ${req.originalUrl}`,
+      requestId: `req_${Date.now()}`,
+    },
+  });
+});
 
 // Error Handling Middleware
 app.use(errorMiddleware);
