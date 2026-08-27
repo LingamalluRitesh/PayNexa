@@ -4,11 +4,12 @@ import zipfile
 def create_clean_zip():
     target_zip = "D:\\ab1.zip"
     source_dir = "D:\\ab1"
+    # Keep .git and package-lock.json for TrainPlex validation
     ignored_dirs = {
-        'node_modules', '.git', 'dist', 'build', '.next', 'data',
+        'node_modules', 'dist', 'build', '.next', 'data',
         'coverage', '.turbo', '.cache', '__pycache__', '.pytest_cache'
     }
-    ignored_files = {'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml'}
+    ignored_files = {'yarn.lock', 'pnpm-lock.yaml'}
 
     print(f"Creating updated {target_zip} from {source_dir}...")
     temp_zip = "D:\\ab1_temp.zip"
@@ -20,8 +21,8 @@ def create_clean_zip():
             for f in files:
                 if f in ignored_files or f.endswith('.pyc') or f.endswith('.tsbuildinfo'):
                     continue
-                # Strictly ensure no .env files
-                if f.startswith('.env') and f != '.env.example':
+                # Strictly ensure ZERO .env files in zip (we use example.env instead)
+                if f.startswith('.env'):
                     continue
 
                 abs_path = os.path.join(root, f)
