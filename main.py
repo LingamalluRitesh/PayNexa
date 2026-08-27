@@ -12,11 +12,6 @@ def main():
     print("💳 PayNexa — Next-Generation Digital Payment Platform & Banking Core")
     print("=" * 70)
     
-    if len(sys.argv) > 1 and sys.argv[1] == 'measure':
-        from measure import main as run_measure
-        run_measure()
-        return
-
     print("Checking Node.js & TypeScript Monorepo environment...")
     try:
         res = subprocess.run(["node", "-v"], capture_output=True, text=True, check=True)

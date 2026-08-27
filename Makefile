@@ -20,9 +20,6 @@ benchmark:
 seed:
 	npm run seed
 
-measure:
-	python measure.py --no-llm --build none
-
 docker-up:
 	docker-compose up -d --build
 
